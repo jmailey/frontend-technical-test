@@ -57,7 +57,7 @@ describe('getData Tests', () => {
     request.mockResolvedValueOnce({ id: 'xe' });
     request.mockResolvedValueOnce({ id: 'xj', price: '£40,000' });
 
-    return expect(safelyCallApi()).resolves.toEqual([
+    expect(safelyCallApi()).resolves.toEqual([
       { id: 'xj', price: '£40,000' }
     ]);
   });
