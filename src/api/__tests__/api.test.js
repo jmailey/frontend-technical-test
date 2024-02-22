@@ -1,9 +1,12 @@
 import getData from '..';
 import { request } from '../helpers';
 
-jest.mock('../helpers');
+jest.mock('../helpers', () => ({
+  ...jest.requireActual('../helpers'),
+  request: jest.fn(),
+}));
 
-describe.skip('getData Tests', () => {
+describe('getData Tests', () => {
   const safelyCallApi = async () => {
     try {
       return await getData();
@@ -23,7 +26,7 @@ describe.skip('getData Tests', () => {
     request.mockResolvedValueOnce([]);
     await safelyCallApi();
 
-    expect(request).toBeCalledWith('/api/vehicles.json');
+    return expect(request).toBeCalledWith('/api/vehicles.json');
   });
 
   it('Should traverse and make further api calls on main results', async () => {
@@ -44,7 +47,7 @@ describe.skip('getData Tests', () => {
     request.mockRejectedValueOnce('An error occurred');
 
     expect(safelyCallApi()).resolves.toEqual([
-      { apiUrl: '/api/vehicle_ftype.json', id: 'ftype', price: '£36,000' }
+      { id: 'ftype', price: '£36,000' }
     ]);
   });
 
@@ -55,7 +58,7 @@ describe.skip('getData Tests', () => {
     request.mockResolvedValueOnce({ id: 'xj', price: '£40,000' });
 
     return expect(safelyCallApi()).resolves.toEqual([
-      { apiUrl: '/api/xj.json', id: 'xj', price: '£40,000' }
+      { id: 'xj', price: '£40,000' }
     ]);
   });
 });
