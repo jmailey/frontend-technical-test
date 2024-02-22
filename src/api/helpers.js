@@ -30,6 +30,6 @@ export function areRequiredValuesValid(data, valuesToCheck) {
  * @param {object} value - object to be checked for required values.
  * @returns {boolean} - True if status is 'fulfilled' and all required values are present, otherwise false.
  */
-export function isFulfilledWithValidValues ({ status, value }) {
+export function isFulfilledWithValidValues({ status, value }) {
   return status === 'fulfilled' && areRequiredValuesValid(value, ['price', 'id']);
 }
