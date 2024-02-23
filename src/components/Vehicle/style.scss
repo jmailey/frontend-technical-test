@@ -1,7 +1,7 @@
 .Vehicle {
-  display: flex;
   align-items: center;
   border-bottom: 1px solid var(--light-gray);
+  display: flex;
 }
 
 .Vehicle__image {
@@ -11,10 +11,10 @@
 
   img {
     display: block;
-    width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    width: 100%;
   }
 }
 
@@ -32,18 +32,18 @@
 }
 
 .Vehicle__detail-name {
+  font-size: 1.2rem;
   font-weight: 500;
-  text-transform: uppercase;
   margin-bottom: 0;
   margin-bottom: 4px;
-  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
 .Vehicle__detail-price {
   color: var(--gray);
-  margin-bottom: 12px;
-  letter-spacing: 1px;
   font-size: .9rem;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
 
 }
 
@@ -54,18 +54,19 @@
 
 /* Visually hide dt elements for accessibility */
 .Vehicle__detail-label {
-  position: absolute;
-  width: 1px;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
   height: 1px;
   margin: -1px;
-  padding: 0;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 // TABLET
 @media screen and (min-width: 768px) {
+
   .Vehicle {
     display: block;
   }
@@ -75,21 +76,22 @@
   }
 
   .Vehicle__image {
+
     img {
       height: auto;
     }
   }
 
   .Vehicle__details {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
   }
 
   .Vehicle__detail-name {
-    border-top: 1px solid #000;
     border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
     margin: 16px 0;
     width: fit-content;
   }
@@ -97,14 +99,15 @@
 
 // DESKTOP
 @media screen and (min-width: 1024px) {
+
   .Vehicle {
     border-right: 1px solid var(--light-gray);
   }
 
   .Vehicle__detail-description {
+    max-width: 350px;
     // white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 350px;
   }
 }
