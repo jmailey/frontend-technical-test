@@ -42,27 +42,8 @@ describe('getData Tests', () => {
   });
 
   it('Should ignore failed API calls during traversing', () => {
-    request.mockResolvedValueOnce([{
-      apiUrl: '/api/vehicle_ftype.json',
-      media: [
-        {
-          name: 'vehicle',
-          url: '/images/16x9/ftype_k17.jpg'
-        },
-        {
-          name: 'vehicle',
-          url: '/images/1x1/ftype_k17.jpg'
-        }
-      ]
-    }, { apiUrl: '/api/vehicle_xj.json' }]);
-    request.mockResolvedValueOnce({
-      id: 'ftype',
-      price: '£36,000',
-      media: {
-        desktop: { name: 'vehicle', url: '/images/16x9/ftype_k17.jpg' },
-        mobile: { name: 'vehicle', url: '/images/1x1/ftype_k17.jpg' }
-      }
-    });
+    request.mockResolvedValueOnce([{ apiUrl: '/api/vehicle_ftype.json' }, { apiUrl: '/api/vehicle_xj.json' }]);
+    request.mockResolvedValueOnce({ id: 'ftype', price: '£36,000', media: null });
     request.mockRejectedValueOnce('An error occurred');
 
     expect(safelyCallApi()).resolves.toEqual([
@@ -71,6 +52,25 @@ describe('getData Tests', () => {
   });
 
   it('Should ignore vehicles without valid price during traversing', () => {
+    request.mockResolvedValueOnce([
+      { id: 'ftype', apiUrl: '/api/ftype.json' },
+      { id: 'xe', apiUrl: '/api/xe.json', },
+      { id: 'xj', apiUrl: '/api/xj.json' }
+    ]);
+    request.mockResolvedValueOnce({ id: 'ftype', price: '£40,000' });
+    request.mockResolvedValueOnce({ id: 'xe' });
+    request.mockResolvedValueOnce({ id: 'xj', price: '' });
+
+    expect(safelyCallApi()).resolves.toEqual([
+      {
+        id: 'ftype',
+        price: '£40,000',
+        media: null
+      }
+    ]);
+  });
+
+  it('Should merge media into payload if matching vehicle', () => {
     request.mockResolvedValueOnce([{
       id: 'ftype',
       apiUrl: '/api/ftype.json',
@@ -123,6 +123,35 @@ describe('getData Tests', () => {
           desktop: { name: 'vehicle', url: '/images/16x9/ftype_k17.jpg' },
           mobile: { name: 'vehicle', url: '/images/1x1/ftype_k17.jpg' }
         }
+      }
+    ]);
+  });
+
+  it('Should return with media key as null if no media or if not all media is present', () => {
+    request.mockResolvedValueOnce([
+      {
+        id: 'ftype',
+        apiUrl: '/api/ftype.json',
+        media: [{
+          name: 'vehicle',
+          url: '/images/16x9/ftype_k17.jpg'
+        }]
+      },
+      { id: 'xj', apiUrl: '/api/xj.json' }
+    ]);
+    request.mockResolvedValueOnce({ id: 'ftype', price: '£30,000' });
+    request.mockResolvedValueOnce({ id: 'xj', price: '£40,000' });
+
+    expect(safelyCallApi()).resolves.toEqual([
+      {
+        id: 'ftype',
+        price: '£30,000',
+        media: null
+      },
+      {
+        id: 'xj',
+        price: '£40,000',
+        media: null
       }
     ]);
   });
