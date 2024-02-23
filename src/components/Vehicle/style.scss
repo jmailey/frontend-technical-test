@@ -25,10 +25,6 @@
 .Vehicle__details {
   margin: 0;
   padding: 12px;
-
-  dd {
-    margin-inline-start: 0px
-  }
 }
 
 .Vehicle__detail-name {
@@ -37,6 +33,7 @@
   margin-bottom: 0;
   margin-bottom: 4px;
   text-transform: uppercase;
+  margin-inline-start: 0px
 }
 
 .Vehicle__detail-price {
@@ -44,12 +41,13 @@
   font-size: .9rem;
   letter-spacing: 1px;
   margin-bottom: 12px;
-
+  margin-inline-start: 0px
 }
 
 .Vehicle__detail-description {
   color: var(--gray);
   font-size: .8rem;
+  margin-inline-start: 0px
 }
 
 /* Visually hide dt elements for accessibility */
@@ -106,7 +104,6 @@
 
   .Vehicle__detail-description {
     max-width: 350px;
-    // white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
