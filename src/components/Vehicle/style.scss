@@ -1,17 +1,21 @@
 .Vehicle {
+  --fs-base: 12px;
+  --golden-ratio: 1.618;
+  --fs-vehicle-detail-name: calc(var(--fs-base) * var(--golden-ratio));
+  --fs-vehicle-detail-price: calc(var(--fs-vehicle-detail-name) / var(--golden-ratio));
+  --fs-vehicle-detail-description: var(--fs-vehicle-detail-price);
   align-items: center;
   border-bottom: 1px solid var(--light-gray);
   display: flex;
 }
 
 .Vehicle__image {
-  flex: 1;
+  flex-basis: 120px;
   overflow: hidden;
   position: relative;
 
   img {
     display: block;
-    height: 100%;
     object-fit: cover;
     object-position: center;
     width: 100%;
@@ -28,7 +32,7 @@
 }
 
 .Vehicle__detail-name {
-  font-size: 1.2rem;
+  font-size: var(--fs-vehicle-detail-name);
   font-weight: 500;
   margin-bottom: 0;
   margin-bottom: 4px;
@@ -38,16 +42,16 @@
 
 .Vehicle__detail-price {
   color: var(--gray);
-  font-size: .9rem;
-  letter-spacing: 1px;
+  font-size: var(--fs-vehicle-detail-price);
   margin-bottom: 12px;
   margin-inline-start: 0px
 }
 
 .Vehicle__detail-description {
   color: var(--gray);
-  font-size: .8rem;
+  font-size: var(--fs-vehicle-detail-description);
   margin-inline-start: 0px;
+  max-width: 375px;
 }
 
 /* Visually hide dt elements for accessibility */
@@ -62,22 +66,22 @@
   width: 1px;
 }
 
+//SMALL
+
+@media screen and (min-width: 576px) {
+  .Vehicle {
+    --fs-base: 16px;
+  }
+}
+
 // TABLET
 @media screen and (min-width: 768px) {
-
   .Vehicle {
     display: block;
   }
 
   .Vehicle:nth-child(odd) {
     border-right: 1px solid var(--light-gray);
-  }
-
-  .Vehicle__image {
-
-    img {
-      height: auto;
-    }
   }
 
   .Vehicle__details {
@@ -90,14 +94,17 @@
   .Vehicle__detail-name {
     border-bottom: 1px solid #000;
     border-top: 1px solid #000;
-    margin: 16px 0;
+    margin: 12px 0;
     width: fit-content;
+  }
+
+  .Vehicle__detail-price {
+    margin-bottom: 16px;
   }
 }
 
 // DESKTOP
 @media screen and (min-width: 1024px) {
-
   .Vehicle {
     border-right: 1px solid var(--light-gray);
   }
