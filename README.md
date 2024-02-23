@@ -1,4 +1,12 @@
+
+<h1 align="center">
 Frontend Technical Test for [TeamITG](https://teamitg.com/)
+</h1>
+
+
+<p align="center">
+  <a target="__blank" rel="noopener" href="https://frontend-technical-test-theta.vercel.app/">Check out the Demo</a>
+</p>
 
 ## System requirements
 You’ll want to ensure you have the following already installed on your local machine before getting started with the test:
