@@ -8,6 +8,13 @@ Frontend Technical Test for [TeamITG](https://teamitg.com/)
   <a target="__blank" rel="noopener" href="https://frontend-technical-test-theta.vercel.app/">Check out the Demo</a>
 </p>
 
+## Screens
+<img width="540" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/e9d8f676-2c7b-41b1-8f41-93d74e58080b">
+<img width="838" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/a512bfa7-559e-4475-853e-1b50936d9317">
+<img width="1220" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/685f5ac8-8d16-4fac-b7a0-a4589d159eb3">
+
+
+
 ## System requirements
 You’ll want to ensure you have the following already installed on your local machine before getting started with the test:
 * **Node 12+:** The current LTS (long-term support) release. We like to use a [Node Version Manager like NVM](https://github.com/nvm-sh/nvm).
