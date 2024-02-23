@@ -9,9 +9,10 @@ Frontend Technical Test for [TeamITG](https://teamitg.com/)
 </p>
 
 ## Screens
-<img width="540" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/e9d8f676-2c7b-41b1-8f41-93d74e58080b">
-<img width="838" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/a512bfa7-559e-4475-853e-1b50936d9317">
-<img width="1220" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/685f5ac8-8d16-4fac-b7a0-a4589d159eb3">
+<img width="433" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/c9f6b061-1e45-4098-9d47-b436c53ead2c">
+<img width="833" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/53b1a847-0719-492d-8608-8e282980c3e9">
+<img width="1470" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/27bddd75-bca6-4d6d-a5d7-c0d609f2a6f5">
+
 
 
 
