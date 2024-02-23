@@ -69,6 +69,7 @@
 //SMALL
 
 @media screen and (min-width: 576px) {
+
   .Vehicle {
     --fs-base: 16px;
   }
@@ -76,6 +77,7 @@
 
 // TABLET
 @media screen and (min-width: 768px) {
+
   .Vehicle {
     display: block;
   }
@@ -105,6 +107,7 @@
 
 // DESKTOP
 @media screen and (min-width: 1024px) {
+
   .Vehicle {
     border-right: 1px solid var(--light-gray);
   }
