@@ -11,14 +11,18 @@ export default async function getData() {
   const vehicleDetailsResponse = await Promise
     .allSettled(apiUrls.map((url) => request(url)));
 
-  const vehicleDetails = vehicleDetailsResponse
+  const mergeMedia = (value) => {
+    const matchingVehicle = vehicles.find((vehicle) => vehicle.id === value.id);
+    if (!matchingVehicle) return null;
+    return {
+      mobile: matchingVehicle.media[1],
+      desktop: matchingVehicle.media[0],
+    };
+  };
+
+  const vehicleSummaryPayload = vehicleDetailsResponse
     .filter(isFulfilledWithValidValues)
-    .map(({ value }) => (value));
+    .map(({ value }) => ({ ...value, media: mergeMedia(value) }));
 
-  const mergeMedia = (details) => vehicles
-    .filter((vehicle) => vehicle.id === details.id)
-    .map((vehicle) => ({ mobile: vehicle.media[1], desktop: vehicle.media[0] }))[0];
-
-  const vehicleSummaryPayload = vehicleDetails.map((details) => ({ ...details, media: mergeMedia(details) }));
   return vehicleSummaryPayload;
 }
