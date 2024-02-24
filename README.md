@@ -32,6 +32,8 @@ Frontend Technical Test for [TeamITG](https://teamitg.com/)
 
  - Styled Layout and Vehicle component using BEM naming conventions.
 
+ - Introduced 4 min-width breakpoints. mobile: 0-576px, small: 576px, tablet: 768px, desktop:1024px
+
 
 ## Coverage Report
 
