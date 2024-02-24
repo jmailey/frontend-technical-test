@@ -4,10 +4,12 @@ import './style.scss';
 export default function Vehicle({ vehicle }) {
   return (
     <div data-testid="vehicle" className="Vehicle">
+      { vehicle.media && (
       <picture className="Vehicle__image">
         <source media="(min-width:768px)" srcSet={vehicle.media.desktop.url} />
         <img src={vehicle.media.mobile.url} alt={`${vehicle.id}`} height="470" width="470" />
       </picture>
+      )}
       <div className="Vehicle__body">
         <dl className="Vehicle__details">
           <dt className="Vehicle__detail-label">Name</dt>
