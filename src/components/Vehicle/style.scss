@@ -15,12 +15,12 @@
   position: relative;
 
   img {
+    aspect-ratio: 1 / 1;
     display: block;
+    height: auto;
     object-fit: cover;
     object-position: center;
     width: 100%;
-    height: auto;
-    aspect-ratio: 1 / 1;
   }
 }
 
@@ -89,6 +89,7 @@
   }
 
   .Vehicle__image {
+
     img {
       aspect-ratio: 16 / 9;
     }
