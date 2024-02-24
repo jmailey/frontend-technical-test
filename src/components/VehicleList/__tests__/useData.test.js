@@ -10,7 +10,7 @@ jest.mock('../../../api/index', () => ({
 
 describe('useData hook', () => {
   it('fetches data correctly', async () => {
-    const mockData = [{ id: 1, name: 'Car' }, { id: 2, name: 'Bike' }];
+    const mockData = [{ id: 'ftype', price: '£30,000' }, { id: 'fpace', price: '£40,000' }];
     getData.mockResolvedValueOnce(mockData);
 
     await act(async () => {
