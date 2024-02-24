@@ -25,11 +25,12 @@ describe('<VehicleList /> Tests', () => {
   });
 
   it('Should show results if loading successfully finished', () => {
-    useData.mockReturnValue([false, false, []]);
-    const { queryByTestId } = render(<VehicleList />);
-
+    useData.mockReturnValue([false, false, [{ id: 'ftype', price: '£30,000' }, { id: 'fpace', price: '£40,000' }]]);
+    const { queryByTestId, getAllByTestId } = render(<VehicleList />);
+    const vehicleComponents = getAllByTestId('vehicle');
     expect(queryByTestId('loading')).toBeNull();
     expect(queryByTestId('error')).toBeNull();
     expect(queryByTestId('results')).not.toBeNull();
+    expect(vehicleComponents.length).toBe(2);
   });
 });
