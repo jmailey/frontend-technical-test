@@ -36,8 +36,10 @@ Frontend Technical Test for [TeamITG](https://teamitg.com/)
 
 
 ## Coverage Report
+<img width="1450" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/368e0817-d542-4d20-bf74-20b597eb7bb1">
 
 ## Lighthouse score
+<img width="484" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/45a1ebf5-3744-457b-b8ff-f975eddd8932">
 
 ## System requirements
 You’ll want to ensure you have the following already installed on your local machine before getting started with the test:
