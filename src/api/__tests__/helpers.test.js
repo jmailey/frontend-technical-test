@@ -1,4 +1,4 @@
-import { areRequiredValuesValid } from '../helpers';
+import { areRequiredValuesValid, request } from '../helpers';
 
 const VehicleTable = [{
   received: { price: '£60,000', id: 'ftype' },
@@ -26,9 +26,29 @@ const VehicleTable = [{
 ];
 
 describe('helpers', () => {
+  let originalFetch;
+
+  beforeAll(() => {
+    originalFetch = global.fetch;
+  });
+
+  afterEach(() => {
+    global.fetch = originalFetch;
+  });
   test('requiredValues returns true if all required values are present', () => {
     VehicleTable.map(({ received, expected }) => {
       return expect(areRequiredValuesValid(received, ['price', 'id'])).toEqual(expected);
     });
+  });
+
+  test('request function', async () => {
+    global.fetch = jest.fn(() => Promise.resolve({
+      json: () => Promise.resolve({ data: 'mocked data' }),
+    }));
+
+    const apiUrl = 'https://example.com/api';
+    const data = await request(apiUrl);
+    expect(data).toEqual({ data: 'mocked data' });
+    expect(fetch).toHaveBeenCalledWith(apiUrl);
   });
 });
