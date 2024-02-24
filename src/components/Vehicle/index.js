@@ -6,7 +6,7 @@ export default function Vehicle({ vehicle }) {
     <div data-testid="vehicle" className="Vehicle">
       <picture className="Vehicle__image">
         <source media="(min-width:768px)" srcSet={vehicle.media.desktop.url} />
-        <img src={vehicle.media.mobile.url} alt={`${vehicle.id}`} />
+        <img src={vehicle.media.mobile.url} alt={`${vehicle.id}`} height="470" width="470" />
       </picture>
       <div className="Vehicle__body">
         <dl className="Vehicle__details">
