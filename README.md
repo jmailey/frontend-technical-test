@@ -14,7 +14,28 @@ Frontend Technical Test for [TeamITG](https://teamitg.com/)
 <img width="1470" alt="image" src="https://github.com/jmailey/frontend-technical-test/assets/8898189/27bddd75-bca6-4d6d-a5d7-c0d609f2a6f5">
 
 
+## What has been done
 
+ - Added @testing-library/react-hooks and tested useData hook.
+
+ - Implemented getData function to fetch initial vehicle data > traverse vehicles returned for apiUrls > fetch apiUrls > check for rejected request and invalid values > merge media array from initial request into matching vehicle > return vehicles.
+
+ - Got all getData tests passing and added new ones to cover media merging
+
+ - Created Vehicle Component and Tests - handling media being present or not
+
+ - Vehicle images are handled with srcSet, 1/1 images will be rendered before 768px and 16 / 9 images will be rendered after 768px.
+
+ - Added test to vehicles list to test correct amount of children are rendered.
+
+ - Tested all functions in helper.js
+
+ - Styled Layout and Vehicle component using BEM naming conventions.
+
+
+## Coverage Report
+
+## Lighthouse score
 
 ## System requirements
 You’ll want to ensure you have the following already installed on your local machine before getting started with the test:
