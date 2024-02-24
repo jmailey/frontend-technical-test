@@ -41,6 +41,7 @@ describe('<Vehicle /> Tests', () => {
   it('renders vehicle image', () => {
     const { getByAltText } = render(<Vehicle vehicle={mockVehicle} />);
     expect(getByAltText(`${mockVehicle.id}`)).not.toBeNull();
+    expect(getByAltText(`${mockVehicle.id}`)).toHaveProperty('src', 'http://localhost/images/1x1/fpace_k17.jpg');
   });
 
   it('renders vehicle name, price and description', () => {
