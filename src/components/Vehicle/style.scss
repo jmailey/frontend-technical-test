@@ -19,6 +19,8 @@
     object-fit: cover;
     object-position: center;
     width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -84,6 +86,12 @@
 
   .Vehicle:nth-child(odd) {
     border-right: 1px solid var(--light-gray);
+  }
+
+  .Vehicle__image {
+    img {
+      aspect-ratio: 16 / 9;
+    }
   }
 
   .Vehicle__details {
